@@ -1,0 +1,25 @@
+# Dataset
+Corrosion_Split/
+data/
+
+# Training outputs
+runs/
+
+# Notebooks
+notebooks/
+
+# Models
+*.keras
+*.h5
+yolov8n.pt
+last.pt
+
+# Python
+__pycache__/
+*.pyc
+
+# Streamlit
+.streamlit/
+
+# Zip files
+*.zip
