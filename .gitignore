@@ -22,4 +22,5 @@ __pycache__/
 .streamlit/
 
 # Zip files
-*.zip
+*.zip\
+models/rul_model.pkl
