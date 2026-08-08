@@ -8,7 +8,7 @@ import tempfile
 
 import plotly.graph_objects as go
 import plotly.express as px
-
+import os
 # -------------------------------
 # # -------------------------------
 # Page Config
@@ -74,13 +74,17 @@ This platform combines:
 to prioritize industrial assets using Explainable AI.
 """)
 
+
 # -------------------------------
 # Load Models
 # -------------------------------
-
-model = joblib.load("models/rul_model.pkl")
+if os.path.exists("models/rul_model.pkl"):
+    model = joblib.load("models/rul_model.pkl")
+else:
+    model = None
 
 yolo_model = YOLO("models/best.pt")
+
 
 
 # -------------------------------
