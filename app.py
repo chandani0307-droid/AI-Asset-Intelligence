@@ -86,7 +86,6 @@ else:
 yolo_model = YOLO("models/best.pt")
 
 
-
 # -------------------------------
 # Load Dataset
 # -------------------------------
@@ -97,16 +96,13 @@ df = pd.read_csv(
     header=None
 )
 
-
 df.drop(
     columns=[26, 27],
     inplace=True,
     errors="ignore"
 )
 
-
 # Column Names
-
 cols = [
     "engine_no",
     "cycle",
@@ -115,10 +111,8 @@ cols = [
     "op3"
 ]
 
-
 for i in range(1, 22):
     cols.append(f"s{i}")
-
 
 df.columns = cols
 
@@ -129,17 +123,16 @@ df.columns = cols
 
 latest = df.groupby("engine_no").last().reset_index()
 
-
 sensor_cols = [
-    f"s{i}" for i in range(1,22)
+    f"s{i}" for i in range(1, 22)
 ]
-
 
 X = latest[sensor_cols]
 
-
-latest["Predicted_RUL"] = model.predict(X)
-
+if model is not None:
+    latest["Predicted_RUL"] = model.predict(X)
+else:
+    latest["Predicted_RUL"] = 100
 
 
 # -------------------------------
