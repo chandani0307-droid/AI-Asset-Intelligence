@@ -3,7 +3,7 @@ pandas
 numpy
 scikit-learn
 joblib
-ultralytics
+ultralytics==8.3.0
 opencv-python-headless
 Pillow
 plotly
