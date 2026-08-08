@@ -4,7 +4,6 @@ numpy
 scikit-learn
 joblib
 ultralytics
-opencv-python
+opencv-python-headless
 Pillow
 plotly
-
