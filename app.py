@@ -26,6 +26,7 @@ st.set_page_config(
 
 st.sidebar.title("🏭 Asset Intelligence")
 
+
 st.sidebar.success("🟢 System Status : Online")
 
 st.sidebar.markdown("---")
@@ -258,7 +259,10 @@ st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("---")
 
-corrosion_status = "Not Checked"
+if "corrosion_status" not in st.session_state:
+    st.session_state.corrosion_status = "Not Checked"
+
+corrosion_status = st.session_state.corrosion_status
 
 # =====================================================
 # Asset Profile
@@ -766,7 +770,8 @@ if uploaded_file is not None:
 
         if len(result.boxes) > 0:
 
-            corrosion_status = "🔴 Corrosion Detected"
+            st.session_state.corrosion_status = "🔴 Corrosion Detected"
+            corrosion_status = st.session_state.corrosion_status
 
             st.error("⚠ Corrosion Detected")
 
@@ -810,10 +815,12 @@ Reason:
 ✔ High Vibration
 """
             )
+            
 
         else:
 
-            corrosion_status = "🟢 No Corrosion Detected"
+            st.session_state.corrosion_status = "🟢 No Corrosion Detected"
+            corrosion_status = st.session_state.corrosion_status
 
             st.success("✅ No Corrosion Detected")
 
@@ -835,6 +842,7 @@ No corrosion found.
 Continue monitoring.
 """
             )
+            st.rerun()
 
 
 st.markdown("---")

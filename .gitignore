@@ -1,6 +1,9 @@
 # Dataset
 Corrosion_Split/
 data/
+!data/corrosion detect/
+!data/corrosion detect/images/
+!data/corrosion detect/images/image1.jpeg
 
 # Training outputs
 runs/
@@ -23,4 +26,4 @@ __pycache__/
 
 # Zip files
 *.zip\
-models/rul_model.pkl
+
